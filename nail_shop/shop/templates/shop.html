@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+ {% load static %}
+{% block title %}
+  <title>Shop</title>
+{% endblock title %}
+{% block content%}
+<section class="main-section paddind" id="Portfolio">
+    <!--main-section-start-->
+    <div class="container">
+        <h2>Catalog</h2>
+        <h6>You can create magic</h6>
+        <div class="portfolioFilter">
+            <ul class="Portfolio-nav wow fadeIn delay-02s">
+                <li><a href="#" data-filter="*" class="current">All</a></li>
+                <li><a href="#" data-filter=".branding">Base</a></li>
+                <li><a href="#" data-filter=".webdesign">Top</a></li>
+                <li><a href="#" data-filter=".printdesign">Gel</a></li>
+                <li><a href="#" data-filter=".photography">Gel-lack</a></li>
+            </ul> 
+        </div>
+    </div>
+    <div class="portfolioContainer wow fadeInUp delay-04s">
+        {% for post in products %}
+            {% if post.type == "base" %}
+                <div class="Portfolio-box branding">
+                    <a><img src="{{ post.image.url }}" alt=""></a>
+                    <p>{{ post.name }}</p>
+                    <p style="front size:6px">{{post.firm }}</p>
+                    <p>Price:{{ post.price }}RUB</p>   
+                    <a href="{{ post.get_product_url }}" role="button" class="btn btn-sm btn-outline-secondary">View</a>
+                 </div>
+            {% elif post.type == "gel" %}    
+                <div class=" Portfolio-box printdesign">
+                    <a><img src="{{ post.image.url }}" alt=""></a>
+                    <p1>{{ post.name }}</p1>
+                    <p style="front size:6px">{{ post.firm }}</p>
+                    <p>Price:{{ post.price }}RUB</p>
+                    <a href="{{ post.get_product_url }}" role="button" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>  
+            {% elif post.type == "top" %}     
+                <div class="Portfolio-box webdesign">
+                    <a><img src="{{ post.image.url }}" alt=""></a>
+                    <p1>{{ post.name }}</p1>
+                    <p style="front size:6px">{{ post.firm }}</p>
+                    <p>Price:{{ post.price }}RUB</p>
+                    <a href="{{ post.get_product_url }}" role="button" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+            {% else%}       
+                    <div class=" Portfolio-box photography"> 
+                        <a><img src="{{ post.image.url }}" alt=""></a>
+                        <p1>{{ post.name }}</p1>
+                        <p style="front size:6px">{{ post.firm }}</p>
+                        <p>Price:{{ post.price }}RUB</p>
+                        <a href="{{ post.get_product_url }}" role="button" class="btn btn-sm btn-outline-secondary">View</a>
+                    </div>
+            {% endif %}            
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

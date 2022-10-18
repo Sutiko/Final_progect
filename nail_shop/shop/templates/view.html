@@ -1,0 +1,15 @@
+{% extends 'main.html'%}
+{% load static %}
+{% block title %}
+  <title>Shop</title>
+{% endblock title %}
+{% block content %}
+<div class="container">
+  <h2>Catalog</h2>
+  <h6>You can create magic</h6>
+  <p>{{ post.name }}</p>
+  <p style="front size:6px">{{ post.firm }}</p>
+  <p>Price:{{ post.price }}RUB</p>
+   
+</div> 
+{% endblock %}

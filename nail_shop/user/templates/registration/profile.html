@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block title_page %}
+  <title>Смена пароля</title>
+{% endblock title_page %}
+
+{% block content %}
+
+<h1> Edit your Profile </h1>
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ profile_form.as_p }}
+    <p><button type="submit" class="btn btn-primary">Submit</button></p>
+</form>
+
+{% endblock %}
